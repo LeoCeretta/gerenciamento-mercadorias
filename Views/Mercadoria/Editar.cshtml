@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Editar mercadoria cadastrada";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Editar mercadoria</h1>
+</div>
+
+<form>
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" placeholder="Digite seu nome">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="numeroDeRegistro">Nº de Registro</label>
+        <input type="number" class="form-control" placeholder="Digite o número do registro">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="fabricante">Fabricante</label>
+        <input type="text" class="form-control" placeholder="Digite o nome do fabricante">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="tipo">Tipo</label>
+        <input type="text" class="form-control" placeholder="Digite o tipo da mercadoria">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <input type="text" class="form-control" placeholder="Digite a descrição da mercadoria">
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-lg btn-block" role="button" asp-controller="Mercadoria" asp-action="Index">Voltar</a>
+</form>

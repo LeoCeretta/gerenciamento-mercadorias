@@ -1,0 +1,19 @@
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.VisualBasic;
+
+namespace LEKSupplyApplication.Models
+{
+    public class EntradaModel
+    {
+        public int Id { get; set; }
+
+        public int NmrRegistro { get; set; }
+
+        public int Quantidade { get; set; }
+
+        public DateTime Data { get; set; }
+
+        public string Local { get; set; }
+
+    }
+}
