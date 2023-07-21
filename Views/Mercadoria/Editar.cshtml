@@ -1,4 +1,6 @@
-﻿@{
+﻿@model MercadoriaModel
+
+@{
     ViewData["Title"] = "Editar mercadoria cadastrada";
 }
 
@@ -6,30 +8,37 @@
     <h1 class="display-4">Editar mercadoria</h1>
 </div>
 
-<form>
+<form asp-controller="Mercadoria" asp-action="Alterar" method="post">
+
+    <input type="hidden" asp-for="Id" />
     <div class="form-group">
         <label for="nome">Nome</label>
-        <input type="text" class="form-control" placeholder="Digite seu nome">
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite seu nome">
+        @Html.ValidationMessageFor(x => x.Nome)
     </div>
     <br />
     <div class="form-group">
         <label for="numeroDeRegistro">Nº de Registro</label>
-        <input type="number" class="form-control" placeholder="Digite o número do registro">
+        <input type="number" asp-for="NmrRegistro" class="form-control" placeholder="Digite o número do registro">
+        @Html.ValidationMessageFor(x => x.NmrRegistro)
     </div>
     <br />
     <div class="form-group">
         <label for="fabricante">Fabricante</label>
-        <input type="text" class="form-control" placeholder="Digite o nome do fabricante">
+        <input type="text" asp-for="Fornecedor" class="form-control" placeholder="Digite o nome do fabricante">
+        @Html.ValidationMessageFor(x => x.Fornecedor)
     </div>
     <br />
     <div class="form-group">
         <label for="tipo">Tipo</label>
-        <input type="text" class="form-control" placeholder="Digite o tipo da mercadoria">
+        <input type="text" asp-for="Tipo" class="form-control" placeholder="Digite o tipo da mercadoria">
+        @Html.ValidationMessageFor(x => x.Tipo)
     </div>
     <br />
     <div class="form-group">
         <label for="descricao">Descrição</label>
-        <input type="text" class="form-control" placeholder="Digite a descrição da mercadoria">
+        <input type="text" asp-for="Descricao" class="form-control" placeholder="Digite a descrição da mercadoria">
+        @Html.ValidationMessageFor(x => x.Descricao)
     </div>
     <br />
     <button type="submit" class="btn btn-primary btn-lg btn-block">Alterar</button>

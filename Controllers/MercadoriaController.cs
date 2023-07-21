@@ -22,9 +22,10 @@ namespace LEKSupplyApplication.Controllers
             return View();
         }
 
-        public IActionResult Editar()
+        public IActionResult Editar(int id)
         {
-            return View();
+            MercadoriaModel mercadoria = _mercadoriaRepositorio.ListarPorId(id);
+            return View(mercadoria);
         }
 
         public IActionResult ApagarConfirmacao()
@@ -33,10 +34,47 @@ namespace LEKSupplyApplication.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar(MercadoriaModel mercadoria)
+        public IActionResult Adicionar(MercadoriaModel mercadoria)
         {
-            _mercadoriaRepositorio.Adicionar(mercadoria);
-            return RedirectToAction("Index");
+            try
+            {
+                //Validação
+                if (ModelState.IsValid)
+                {
+                    _mercadoriaRepositorio.Adicionar(mercadoria);
+                    TempData["MensagemSucesso"] = "Mercadoria cadastrada com sucesso";
+                    return RedirectToAction("Index");
+                }
+
+                return View(mercadoria);
+            }
+            catch (System.Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não foi possível cadastrar a sua mercadoria, tente novamente! Detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Alterar(MercadoriaModel mercadoria)
+        {
+            try
+            {
+                //Validação
+                if (ModelState.IsValid)
+                {
+                    _mercadoriaRepositorio.Atualizar(mercadoria);
+                    TempData["MensagemSucesso"] = "Mercadoria atualizada com sucesso";
+                    return RedirectToAction("Index");
+                }
+
+                return View("Editar", mercadoria);
+            }
+            catch (System.Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não foi possível atualizar a sua mercadoria, tente novamente! Detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
         }
     }
 }

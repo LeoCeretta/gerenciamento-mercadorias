@@ -20,7 +20,7 @@ namespace LEKSupplyApplication
                 AddDbContext<BancoContext>(o => o.UseSqlServer(configuration.GetConnectionString("DataBase")));
             builder.Services.AddScoped<InterfaceMercadoriaRepositorio, MercadoriaRepositorio>();
             builder.Services.AddScoped<InterfaceEntradaRepositorio, EntradaRepositorio>();
-            //builder.Services.AddScoped<InterfaceSaidaRepositorio, SaidaRepositorio>();
+            builder.Services.AddScoped<InterfaceSaidaRepositorio, SaidaRepositorio>();
 
             var app = builder.Build();
 

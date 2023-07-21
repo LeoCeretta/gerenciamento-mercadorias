@@ -1,4 +1,5 @@
-﻿namespace LEKSupplyApplication.Models
+﻿
+namespace LEKSupplyApplication.Models
 {
     public class SaidaModel
     {

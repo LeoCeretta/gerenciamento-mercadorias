@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.VisualBasic;
-
+﻿
 namespace LEKSupplyApplication.Models
 {
     public class EntradaModel
